@@ -32,3 +32,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Plugins
+/Assets/HTC.UnityPlugin/*
+/Assets/HTC.UnityPlugin.meta
+/Assets/SteamVR/*
+/Assets/SteamVR.meta

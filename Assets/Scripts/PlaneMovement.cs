@@ -12,7 +12,7 @@ public class PlaneMovement : MonoBehaviour {
 
 	public float lerpFactor = 0.5f;
 
-	float lastVertical = 0f;
+	// float lastVertical = 0f;
 
 	public float yawSpeed = 10f;
 
@@ -58,7 +58,9 @@ public class PlaneMovement : MonoBehaviour {
 		rb.AddForce (playerFactorForce, ForceMode.Acceleration);
 
 
-		float yawInput = Input.GetAxis ("Horizontal");
+        // float yawInput = Input.GetAxis ("Horizontal");
+
+        float yawInput = PlaneInput.instance.rollAxis;
 		Vector3 yawTorque = Vector3.up * yawSpeed * yawInput;
 
         // rb.AddTorque (yawTorque, ForceMode.VelocityChange);
