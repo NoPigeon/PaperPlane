@@ -36,7 +36,7 @@ public class WindForce : MonoBehaviour {
             float sinkFactor = delta / height;
             sinkFactor = Mathf.Clamp(sinkFactor, 0f, 1f);
 
-            Debug.Log(sinkFactor);
+//            Debug.Log(sinkFactor);
 
             float forceFactor = forceCurve.Evaluate(sinkFactor);
             Vector3 finalForce = Vector3.Lerp(Vector3.zero, windForce, forceFactor);

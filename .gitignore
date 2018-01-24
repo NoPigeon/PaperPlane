@@ -33,8 +33,12 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+
 # Plugins
 /Assets/HTC.UnityPlugin/*
 /Assets/HTC.UnityPlugin.meta
 /Assets/SteamVR/*
 /Assets/SteamVR.meta
+
+# macOS files
+*.DS_Store
