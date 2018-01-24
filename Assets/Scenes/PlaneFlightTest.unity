@@ -786,8 +786,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 187644467}
   rightHand: {fileID: 20508223}
-  maxRollAngle: 30
+  maxRollAngle: 60
   rollAxis: 0
+  forwardAxis: 0
   rollAngle: 0
 --- !u!1 &826952496
 GameObject:

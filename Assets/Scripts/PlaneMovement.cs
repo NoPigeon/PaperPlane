@@ -22,7 +22,7 @@ public class PlaneMovement : MonoBehaviour {
 	Rigidbody rb;
 	new Collider collider;
 
-	Vector3 tailPivot;
+	// Vector3 tailPivot;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
@@ -30,7 +30,7 @@ public class PlaneMovement : MonoBehaviour {
 
 
 		Vector3 zOffset = new Vector3 (0f, 0f, -collider.bounds.extents.z);
-		tailPivot = collider.bounds.center + zOffset;
+		// tailPivot = collider.bounds.center + zOffset;
 	}
 	
 	// Update is called once per frame
@@ -43,7 +43,12 @@ public class PlaneMovement : MonoBehaviour {
 		Vector3 forwardWindForce = transform.forward * forwardWindSpeed;
 		rb.AddForce (forwardWindForce, ForceMode.Acceleration);
 
-		float forwardInput = Input.GetAxis ("Vertical");
+        // COMMENTED: input from keyboard
+        float kbForwardInput = Input.GetAxis ("Vertical");
+        float vrForwardInput = PlaneInput.instance.forwardAxis;
+
+        float forwardInput = kbForwardInput + vrForwardInput;
+        forwardInput = Mathf.Clamp(forwardInput, -1f, 1f);
 
         float playerForceMag = 0f;
         if(forwardInput > 0f)
@@ -58,16 +63,20 @@ public class PlaneMovement : MonoBehaviour {
 		rb.AddForce (playerFactorForce, ForceMode.Acceleration);
 
 
-        // float yawInput = Input.GetAxis ("Horizontal");
+        // COMMENTED: input from keyboard
+        float kbYawInput = Input.GetAxis ("Horizontal");
+        float vrYawInput = PlaneInput.instance.rollAxis;
 
-        float yawInput = PlaneInput.instance.rollAxis;
+        float yawInput = (kbYawInput + vrYawInput);
+        yawInput = Mathf.Clamp(yawInput, -1f, 1f);
+
 		Vector3 yawTorque = Vector3.up * yawSpeed * yawInput;
 
         // rb.AddTorque (yawTorque, ForceMode.VelocityChange);
 
         rb.angularVelocity += yawTorque;
 
-        Vector3 rollTorque = -transform.forward * yawSpeed * yawInput * rollAngleFactor;
+ //        Vector3 rollTorque = -transform.forward * yawSpeed * yawInput * rollAngleFactor;
         //rb.AddTorque(rollTorque, ForceMode.VelocityChange);
         // rb.angularVelocity += rollTorque;
 

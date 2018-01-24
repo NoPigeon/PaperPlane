@@ -4,15 +4,15 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 60e705afe2a73194f8da5e11ea83e4f4
+  productGUID: 3355557de5a687e44a6eface0a816616
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: PaperPlane
+  companyName: Valve
+  productName: SteamVR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -245,7 +245,7 @@ PlayerSettings:
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 0
-  clonedFromGUID: 3355557de5a687e44a6eface0a816616
+  clonedFromGUID: 00000000000000000000000000000000
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -269,7 +269,7 @@ PlayerSettings:
       m_Icon: {fileID: 0}
       m_Width: 1
       m_Height: 1
-      m_Kind: 37954
+      m_Kind: 37952
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
@@ -305,6 +305,7 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
+    - Oculus
     - OpenVR
   - m_BuildTarget: Tizen
     m_Enabled: 0
@@ -613,7 +614,7 @@ PlayerSettings:
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 
   webGLMemorySize: 256
-  webGLExceptionSupport: 1
+  webGLExceptionSupport: 0
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 0
   webGLDebugSymbols: 0
@@ -626,10 +627,17 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
     1: VIU_PLUGIN;VIU_STEAMVR
-  platformArchitecture: {}
+  platformArchitecture:
+    iOS: 2
   scriptingBackend:
+    Android: 0
+    Metro: 2
     Standalone: 0
-  incrementalIl2cppBuild: {}
+    WP8: 2
+    WebGL: 1
+    iOS: 0
+  incrementalIl2cppBuild:
+    iOS: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
   apiCompatibilityLevelPerPlatform: {}

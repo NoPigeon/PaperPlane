@@ -18,7 +18,10 @@ public class PlaneInput : MonoBehaviour {
     //public float rollAxis {
     //    get; private set;
     //}
+    [ReadOnly]
     public float rollAxis;
+    [ReadOnly]
+    public float forwardAxis;
 
     [ReadOnly]
     public float rollAngle = 0f;
@@ -38,10 +41,19 @@ public class PlaneInput : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rollAxis = 0;
+        forwardAxis = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        rollAxis = CalculateRollAxis();
+
+        forwardAxis = CalculateForwardAxis();
+	}
+
+    float CalculateRollAxis()
+    {
         Vector3 leftPos = leftHand.position;
         Vector3 rightPos = rightHand.position;
 
@@ -49,19 +61,25 @@ public class PlaneInput : MonoBehaviour {
         Vector3 rightHori = new Vector3(rightToLeft.x, 0f, rightToLeft.z);
 
         rollAngle = Vector3.Angle(rightToLeft, rightHori);
-        if(leftPos == rightPos)
+        if (leftPos == rightPos)
         {
             rollAngle = 0f;
         }
 
-        if(rightToLeft.y < 0f)
+        if (rightToLeft.y < 0f)
         {
             rollAngle = -rollAngle;
         }
 
         float clampedRollAngle = Mathf.Clamp(rollAngle, -maxRollAngle, maxRollAngle);
+        return clampedRollAngle / maxRollAngle;
+    }
 
-        rollAxis = clampedRollAngle / maxRollAngle;
-        
-	}
+    float CalculateForwardAxis()
+    {
+        float lTrigger = ViveInput.GetAxis(HandRole.LeftHand, ControllerAxis.Trigger);
+        float rTrigger = ViveInput.GetAxis(HandRole.RightHand, ControllerAxis.Trigger);
+
+        return -lTrigger + rTrigger;
+    }
 }
