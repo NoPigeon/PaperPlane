@@ -8,7 +8,7 @@ public class PlaneMovement : MonoBehaviour {
 	public float maxForwardSpeed = 30f;
     public float maxBackwardSpeed = 30f;
 
-
+    public float pressedBackSpeed = 5f;
 
 	public float lerpFactor = 0.5f;
 
@@ -57,6 +57,12 @@ public class PlaneMovement : MonoBehaviour {
         } else
         {
             playerForceMag = maxBackwardSpeed * forwardInput;
+        }
+
+        if (PlaneInput.instance.backwardDown)
+        {
+            // pressed back button, plane can go backwards
+            playerForceMag = -pressedBackSpeed;
         }
 
 		Vector3 playerFactorForce = transform.forward * playerForceMag;

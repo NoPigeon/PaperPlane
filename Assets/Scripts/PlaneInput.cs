@@ -22,6 +22,8 @@ public class PlaneInput : MonoBehaviour {
     public float rollAxis;
     [ReadOnly]
     public float forwardAxis;
+    [ReadOnly]
+    public bool backwardDown;
 
     [ReadOnly]
     public float rollAngle = 0f;
@@ -35,13 +37,14 @@ public class PlaneInput : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
+        
     }
 
     // Use this for initialization
     void Start () {
         rollAxis = 0;
         forwardAxis = 0;
+        backwardDown = false;
 	}
 	
 	// Update is called once per frame
@@ -50,6 +53,15 @@ public class PlaneInput : MonoBehaviour {
         rollAxis = CalculateRollAxis();
 
         forwardAxis = CalculateForwardAxis();
+
+        if(ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Trigger))
+        {
+            backwardDown = true;
+        }
+        else
+        {
+            backwardDown = false;
+        }
 	}
 
     float CalculateRollAxis()
