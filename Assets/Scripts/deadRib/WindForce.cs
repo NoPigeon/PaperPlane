@@ -46,4 +46,11 @@ public class WindForce : MonoBehaviour {
             rb.AddForce(finalForce, ForceMode.Acceleration);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        collider = GetComponent<Collider>();
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(collider.bounds.center, collider.bounds.size);
+    }
 }

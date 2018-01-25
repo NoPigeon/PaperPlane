@@ -34,12 +34,12 @@ public class PlaneMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        // Debug.Log (rb.velocity.y);
+	//void Update () {
+ //       // Debug.Log (rb.velocity.y);
         
-	}
+	//}
 
-	void FixedUpdate(){
+	void Update(){
 		Vector3 forwardWindForce = transform.forward * forwardWindSpeed;
 		rb.AddForce (forwardWindForce, ForceMode.Acceleration);
 
@@ -70,9 +70,9 @@ public class PlaneMovement : MonoBehaviour {
         float yawInput = (kbYawInput + vrYawInput);
         yawInput = Mathf.Clamp(yawInput, -1f, 1f);
 
-		Vector3 yawTorque = Vector3.up * yawSpeed * yawInput;
-
-        // rb.AddTorque (yawTorque, ForceMode.VelocityChange);
+		Vector3 yawTorque = Vector3.up * yawSpeed * yawInput * Time.deltaTime;
+        // Debug.Log(1f / Time.fixedDeltaTime);
+        // rb.AddTorque (yawTorque, ForceMode.Acceleration);
 
         rb.angularVelocity += yawTorque;
 
