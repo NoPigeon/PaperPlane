@@ -22,7 +22,7 @@ public class PlaneSound : MonoBehaviour {
         Vector3 v = rb.velocity;
         v = transform.InverseTransformVector(v);
 
-        Debug.Log(v);
+//        Debug.Log(v);
 
        //  v = new Vector3(0f, 0f, v.z);
 
