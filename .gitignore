@@ -40,5 +40,8 @@ sysinfo.txt
 /Assets/SteamVR/*
 /Assets/SteamVR.meta
 
+/Assets/External/*
+/Assets/External.meta
+
 # macOS files
 *.DS_Store
