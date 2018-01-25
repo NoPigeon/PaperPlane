@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	public Text countText;
 	public Text winText;
+	public GameObject myPrefab;
 
 	private Rigidbody rb;
 	private int count;
@@ -29,10 +30,13 @@ public class PlayerController : MonoBehaviour {
 		Vector3 movement = new Vector3 (x, 0.0f, z);
 
 		rb.AddForce (movement*speed);
+
 	}
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.CompareTag ("Pick Up")) {
+			GameObject newObject = (GameObject)Instantiate (myPrefab, other.transform.position, other.transform.rotation);
+			Destroy (newObject, 2);
 			other.gameObject.SetActive (false);
 			count = count + 1;
 			SetCountText ();
