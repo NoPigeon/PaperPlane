@@ -29,7 +29,7 @@ public class PlaneMovement : MonoBehaviour {
 		collider = GetComponent<Collider> ();
 
 
-		Vector3 zOffset = new Vector3 (0f, 0f, -collider.bounds.extents.z);
+		//Vector3 zOffset = new Vector3 (0f, 0f, -collider.bounds.extents.z);
 		// tailPivot = collider.bounds.center + zOffset;
 	}
 	

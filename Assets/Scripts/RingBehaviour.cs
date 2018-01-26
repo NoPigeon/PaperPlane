@@ -25,7 +25,7 @@ public class RingBehaviour : MonoBehaviour {
         // Debug.Log(other.transform);
         if (planeRb)
         {
-            float dot = Vector3.Dot(planeRb.velocity, transform.forward);
+            //float dot = Vector3.Dot(planeRb.velocity, transform.forward);
 
             Vector3 centerToPlane = other.transform.position - transform.position;
             float dist = Vector3.Dot(centerToPlane, transform.forward);
