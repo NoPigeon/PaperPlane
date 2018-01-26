@@ -19,6 +19,8 @@ public class PlaneMovement : MonoBehaviour {
     [Range(0f, 1f)]
     public float rollAngleFactor = 0.33f;
 
+    public Transform planeMesh;
+
 	Rigidbody rb;
 	new Collider collider;
 
@@ -86,11 +88,12 @@ public class PlaneMovement : MonoBehaviour {
         //rb.AddTorque(rollTorque, ForceMode.VelocityChange);
         // rb.angularVelocity += rollTorque;
 
-        Vector3 newRotEuler = rb.rotation.eulerAngles;
-        newRotEuler.z = -rb.angularVelocity.y * Mathf.Rad2Deg * rollAngleFactor;
+        Vector3 newRotEuler = planeMesh.rotation.eulerAngles;
+        // newRotEuler.z = -rb.angularVelocity.y * Mathf.Rad2Deg * rollAngleFactor;
+        newRotEuler.z = rb.angularVelocity.y * Mathf.Rad2Deg * rollAngleFactor;
         Quaternion newRot = Quaternion.Euler(newRotEuler);
-
-        rb.rotation = newRot;
+        planeMesh.rotation = newRot;
+        // rb.rotation = newRot;
 
         //float rollAngle = rb.angularVelocity.y * rollAngleFactor;
         //Quaternion rollQuat = Quaternion.Euler(0f, 0f, rollAngle * Mathf.Rad2Deg);

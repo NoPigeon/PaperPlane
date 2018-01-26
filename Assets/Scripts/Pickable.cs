@@ -35,10 +35,11 @@ public class Pickable : MonoBehaviour {
             if (pickedObject)
             {
                 pickedObject.SetActive(true);
-                if (clipSource)
-                {
-                    clipSource.PlayOneShot(pickClip);
-                }
+                
+            }
+            if (clipSource)
+            {
+                clipSource.PlayOneShot(pickClip);
             }
         }
 
