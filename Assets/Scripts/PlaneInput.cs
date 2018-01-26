@@ -54,7 +54,7 @@ public class PlaneInput : MonoBehaviour {
 
         forwardAxis = CalculateForwardAxis();
 
-        if(ViveInput.GetPressDown(HandRole.LeftHand, ControllerButton.Trigger))
+        if(Mathf.Approximately(forwardAxis, -1f))
         {
             backwardDown = true;
         }

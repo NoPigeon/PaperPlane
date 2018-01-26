@@ -62,7 +62,7 @@ public class PlaneMovement : MonoBehaviour {
         if (PlaneInput.instance.backwardDown)
         {
             // pressed back button, plane can go backwards
-            playerForceMag = -pressedBackSpeed;
+            playerForceMag = -pressedBackSpeed - forwardWindSpeed;
         }
 
 		Vector3 playerFactorForce = transform.forward * playerForceMag;
